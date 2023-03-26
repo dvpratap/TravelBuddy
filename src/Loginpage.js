@@ -63,7 +63,7 @@ const Loginpage = () => {
           <CardMedia
                   component="img"
                   height="280"
-                  image={require('./carpool-final.png')}
+                  image={require('./Images/carpool-final.png')}
                   alt='carpool'
                   className={classes.image}
                 />

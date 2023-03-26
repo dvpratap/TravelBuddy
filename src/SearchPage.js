@@ -17,7 +17,7 @@ const SearchPage = () => {
               <CardMedia
                 component="img"
                 height="300"
-                image={require('./car.png')}
+                image={require('./Images/car.png')}
                 alt='share-ride'
               />
               <CardContent>
@@ -37,7 +37,7 @@ const SearchPage = () => {
               <CardMedia
                 component="img"
                 height="300"
-                image={require('./book.PNG')}
+                image={require('./Images/book.PNG')}
                 alt='book-ride'
               />
               <CardContent >
@@ -57,7 +57,7 @@ const SearchPage = () => {
               <CardMedia
                 component="img"
                 height="300"
-                image={require('./request.jpeg')}
+                image={require('./Images/request.jpeg')}
                 alt='diamond-ring'
               />
               <CardContent >
