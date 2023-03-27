@@ -55,10 +55,10 @@ return(
       <>
         <div className={classes.splitScreen}>
         <div className={classes.leftside}>
-      <Card sx={{ marginTop: '2%', marginLeft: '8%', maxWidth: '80%', height: '38vw', background:'lightgray' }}>
+      <Card sx={{ marginTop: '2%', marginLeft: '8%', maxWidth: '80%', height: '50vw', background:'lightgray' }}>
         <CardMedia
-            sx={{ height: 140 }}
-            image={require('./Images/Hyundai.jpg')}
+            sx={{ height: 400 }}
+            image={require('./Images/car2.jpg')}
             title="green iguana" />
         <CardContent>
             <div>
@@ -107,7 +107,7 @@ return(
                 <div>
                     <div>
                         <Typography gutterBottom variant="h5" component="div">
-                            Contact John
+                            Contact {posts.driverName}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                                     <TextField  multiline rows={4} sx={{ width: '90%'}} defaultValue="Hey, I am interested."/>

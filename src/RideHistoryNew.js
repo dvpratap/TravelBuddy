@@ -2,7 +2,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import {makeStyles} from "@material-ui/core/styles";
-import {useNavigate} from 'react-router-dom';
 import CardMedia from "@mui/material/CardMedia";
 import { red } from '@mui/material/colors';
 
@@ -40,8 +39,6 @@ const useStyles = makeStyles({
 
 const RideHistoryNew = () => {
     const classes = useStyles();
-    const navigate = useNavigate();
-
     return(
         <div>
             <Card>

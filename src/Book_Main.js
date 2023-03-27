@@ -59,7 +59,7 @@ const BookMain=()=>{
   const filterOnLocation = (key) => ()=>{
 
   const post = posts.filter(l => {
-  return l.source.match( key );
+  return l.destination.match( key );
   });
   setState(previousState=>({
     ...previousState,json:post
@@ -68,15 +68,14 @@ const BookMain=()=>{
 
 
     // eslint-disable-next-line
-    const result = posts.reduce( (acc, o) => (acc[o.source] = (acc[o.source] || 0)+1, acc), {} );
+    const result = posts.reduce( (acc, o) => (acc[o.destination] = (acc[o.destination] || 0)+1, acc), {} );
             
     return(
       <div>
-                <Card>
+          <Card>
           <CardMedia
-            sx={{ height: 300 }}
-            image={require('./Images/Banner.jpg')}
-            title="green iguana" />
+            sx={{ height: 400,width:1600}}
+            image={require('./Images/Banner.jpg')}/>
         </Card>
       <div className={classes.splitScreen}>
         <div className={classes.leftside}>
@@ -113,9 +112,8 @@ const BookMain=()=>{
                     
                     <Card key={key} sx={{ marginTop: '2%',marginLeft:'28%'}}>
       <CardMedia
-        sx={{ height: 140 }}
-        image={require('./Images/Hyundai.jpg')}
-        title="green iguana"
+        sx={{ height: 400 }}
+        image={require('./Images/car2.jpg')}
       />
       <CardContent>
         <div className={classes.splitScreen}>
