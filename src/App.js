@@ -6,6 +6,8 @@ import SearchPage from './SearchPage';
 import SignUp from './Signup';
 import BookMain from './Book_Main';
 import BookDesc from './Book_Description';
+import RideHistory from './RideHistory'
+import RideHistoryNew from "./RideHistoryNew";
 
 const App = () => {
   return (  
@@ -19,7 +21,9 @@ const App = () => {
       <Route path="/login" element={<Loginpage/>} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/book_main" element={<BookMain/>} />
-      <Route path="/Book_Desc" element={<BookDesc/>} />
+          <Route path="/Book_Desc" element={<BookDesc/>} />
+          <Route path="/rideHistory" element={<RideHistory/>} />
+          <Route path="/rideHistoryNew" element={<RideHistoryNew/>} />
       </Routes>
   </Router>
     </div> 
