@@ -22,7 +22,7 @@ const SearchPage = () => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2" sx={{marginLeft: '70px'}}>
-                  Post A Ride
+                  <Link to="/postride">Post Your Ride</Link>
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h2">
                   Share your ride, find a travel buddy

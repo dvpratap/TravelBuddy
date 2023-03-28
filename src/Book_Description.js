@@ -55,7 +55,7 @@ return(
       <>
         <div className={classes.splitScreen}>
         <div className={classes.leftside}>
-      <Card sx={{ marginTop: '2%', marginLeft: '8%', maxWidth: '80%', height: '50vw', background:'lightgray' }}>
+      <Card sx={{ marginTop: '2%', marginLeft: '8%', maxWidth: '80%', height: '50vw', background:'lightgrey' }}>
         <CardMedia
             sx={{ height: 400 }}
             image={require('./Images/car2.jpg')}
@@ -102,7 +102,7 @@ return(
     </Card>
         </div>
          <div className={classes.rightside}>
-            <Card sx={{ marginTop: '2%', marginLeft: '8%', maxWidth: '60%', maxHeight: '180%',background:'floralwhite' }}>
+            <Card sx={{ marginTop: '2%', marginLeft: '8%', maxWidth: '60%', maxHeight: '180%',background:'lightgrey' }}>
             <CardContent>
                 <div>
                     <div>
