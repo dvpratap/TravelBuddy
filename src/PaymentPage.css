@@ -1,0 +1,11 @@
+.payment-page {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.pay-button {
+  display: block;
+  margin: 20px auto 0;
+}

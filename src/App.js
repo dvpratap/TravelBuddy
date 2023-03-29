@@ -9,6 +9,9 @@ import BookDesc from './Book_Description';
 import RideHistory from './RideHistory'
 import RideHistoryNew from "./RideHistoryNew";
 import Postride from "./Postride";
+import ChatPage from "./ChatPage";
+import PaymentPage from "./PaymentPage";
+import PaymentSuccessPage from "./PaymentSuccessPage";
 
 const App = () => {
   return (  
@@ -26,6 +29,9 @@ const App = () => {
       <Route path="/rideHistory" element={<RideHistory/>} />
       <Route path="/rideHistoryNew" element={<RideHistoryNew/>} />
       <Route path="/postride" element={<Postride/>} />
+      <Route path="/chat" element={<ChatPage/>} />
+      <Route path="/payment" element={<PaymentPage/>} />
+      <Route path="/payment/success" element={<PaymentSuccessPage/>} />
       </Routes>
   </Router>
     </div> 
