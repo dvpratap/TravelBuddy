@@ -16,10 +16,8 @@ import PaymentSuccessPage from "./PaymentSuccessPage";
 const App = () => {
   return (  
     <div>
-      <div>
-        <Navbar />
-      </div>
       <Router>
+        <Navbar/>
       <Routes>
       <Route exact path="/" element={<SearchPage/>} />
       <Route path="/login" element={<Loginpage/>} />

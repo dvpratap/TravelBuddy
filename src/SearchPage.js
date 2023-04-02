@@ -62,7 +62,7 @@ const SearchPage = () => {
               />
               <CardContent >
                 <Typography gutterBottom variant="h5" component="h2" sx={{marginLeft: '70px'}}>
-                  <Link to="/rideHistory">Ride History</Link>
+                  <Link to="/rideHistoryNew">Ride History</Link>
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h2">
                   Check your rides and its status

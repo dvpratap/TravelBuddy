@@ -10,11 +10,23 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { ModeOfTravel } from '@mui/icons-material';
+import {useNavigate} from 'react-router-dom';
 
 const pages = ['Post-Ride', 'Book-Ride', 'Request-Ride'];
 //const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
+
+    const navigate=useNavigate();
+
+   const RouteToLogin = () =>{
+        navigate('/login');
+    }
+
+     const RouteToSignUp = () =>{
+        navigate('/signup');
+    }
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   // eslint-disable-next-line
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -123,8 +135,8 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-          <Button color="inherit" variant='outlined' sx={{marginRight:'5px'}} href='/login'>Login</Button>
-          <Button color="inherit" variant='outlined' href='/signup'>SignUp</Button>
+          <Button color="inherit" variant='outlined' sx={{marginRight:'5px'}} onClick={RouteToLogin} >Login</Button>
+          <Button color="inherit" variant='outlined' onClick={RouteToSignUp} >SignUp</Button>
         </Toolbar>
       </Container>
     </AppBar>
