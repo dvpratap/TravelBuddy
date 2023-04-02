@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, Typography, TextField, Button } from '@m
 import IconButton from '@mui/material/IconButton';
 import SendIcon from '@material-ui/icons/Send';
 import { useNavigate } from 'react-router-dom';
-import './ChatPage.css';
+import '../src/css/ChatPage.css';
 
 
 const ChatPage = () => {

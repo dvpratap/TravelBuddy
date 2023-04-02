@@ -16,8 +16,8 @@ const SearchPage = () => {
             <CardActionArea id='12345' target="_blank" rel="noopener">
               <CardMedia
                 component="img"
-                height="300"
-                image={require('./Images/car.png')}
+                height="250"
+                image={require('./Images/postride.png')}
                 alt='share-ride'
               />
               <CardContent>
@@ -25,7 +25,7 @@ const SearchPage = () => {
                   <Link to="/postride">Post Your Ride</Link>
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h2">
-                  Share your ride, find a travel buddy
+                  Post your ride to make it available to the Passengers
                 </Typography>
               </CardContent>
               </CardActionArea>
@@ -36,7 +36,7 @@ const SearchPage = () => {
             <CardActionArea id='12345' target="_blank" rel="noopener" >
               <CardMedia
                 component="img"
-                height="300"
+                height="250"
                 image={require('./Images/book.PNG')}
                 alt='book-ride'
               />
@@ -56,16 +56,16 @@ const SearchPage = () => {
             <CardActionArea id='12345' target="_blank" rel="noopener" >
               <CardMedia
                 component="img"
-                height="300"
+                height="250"
                 image={require('./Images/request.jpeg')}
                 alt='diamond-ring'
               />
               <CardContent >
                 <Typography gutterBottom variant="h5" component="h2" sx={{marginLeft: '70px'}}>
-                  Request For Ride
+                  <Link to="/rideHistory">Ride History</Link>
                 </Typography>
                 <Typography gutterBottom variant="h6" component="h2">
-                  Ask if someone going same route
+                  Check your rides and its status
                 </Typography>
               </CardContent>
               </CardActionArea>

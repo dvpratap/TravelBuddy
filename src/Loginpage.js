@@ -51,6 +51,9 @@ const useStyles = makeStyles({
 const Loginpage = () => {
     const classes = useStyles();
     const navigate = useNavigate();
+     const RouteTo = () =>{
+        navigate('/book_main');
+    }
     const signupClick = () =>{
         navigate('/signup');
     }
@@ -104,7 +107,7 @@ const Loginpage = () => {
           </div>
           <Link href="/forgotpassword" sx={{marginLeft:'170px'}}>forgot password ?</Link>
           <div className='margin-top'>
-          <Button sx={{marginLeft: '130px', marginTop:'30px'}} variant="contained" type='submit'>LogIn</Button>
+          <Button sx={{marginLeft: '130px', marginTop:'30px'}} variant="contained" onClick={RouteTo}>LogIn</Button>
           </div>
           </form>
           <Button sx={{marginLeft: '90px', marginTop:'20px'}} variant="outlined" onClick={signupClick}>SignUp/Register</Button>

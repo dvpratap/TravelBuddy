@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
+import { useNavigate } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -49,6 +50,10 @@ const useStyles = makeStyles({
   
   });
 const SignUp = () => {
+    const navigate=useNavigate();
+   const RouteTo = () =>{
+        navigate('/login');
+    }
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -144,7 +149,9 @@ const classes = useStyles();
           />
           </div>
           <div>
-          <Button sx={{marginLeft: '130px', marginTop:'15px', marginBottom: '7px'}} type="submit" variant="contained" color="primary">
+          <Button sx={{marginLeft: '130px', marginTop:'15px', marginBottom: '7px'}} 
+          onClick={RouteTo}
+          variant="contained" color="primary">
             Sign Up
           </Button>
           </div>

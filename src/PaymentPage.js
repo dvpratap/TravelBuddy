@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardContent, TextField, Button, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import './PaymentPage.css';
+import '../src/css/PaymentPage.css';
 
 
 const PaymentPage = () => {

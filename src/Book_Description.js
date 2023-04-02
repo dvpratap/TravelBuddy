@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@mui/material/TextField';
+import {useNavigate} from 'react-router-dom';
 
 
 
@@ -44,10 +45,16 @@ marginTop: '22%',
 }
   
   });
+
+
   
 
 function BookDesc(){
 const classes = useStyles();
+const navigate=useNavigate();
+const RouteTo = param=>event => {
+navigate("/chat")
+}
 const locations=useLocation();
 const posts=locations.state.data;
 console.log(locations.state)
@@ -115,7 +122,7 @@ return(
                     </div>
                     <div>
                         <Typography sx={{ marginTop: '2%',marginLeft:'28%'}} variant="body2" color="text.secondary">
-                           <Button variant="contained">Send Message</Button>
+                           <Button variant="contained" onClick={RouteTo()}>Send Message</Button>
                         </Typography>
                     </div>
                 </div>

@@ -2,7 +2,8 @@ import React from 'react';
 import { Typography, Button } from '@mui/material';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { Link } from 'react-router-dom';
-import './PaymentSuccessPage.css';
+import '../src/css/PaymentSuccessPage.css';
+
 
 const PaymentSuccessPage = () => {
   return (
