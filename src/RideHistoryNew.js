@@ -50,23 +50,23 @@ const RideHistoryNew = () => {
             <div className={classes.splitScreen}>
                 <div className={classes.lefside}>
                     <Card className={classes.filter}>
-                        <CardMedia sx={{ height: 300,width:300}} image={require('./Images/Scotia_Bank.jpg')}/>
-                        <a sx={{color:red}} href='https://www.scotiabank.com/ca/en/personal.html'>Lear more</a>
+                        <CardMedia sx={{ height: 300,width:300}} image={require('./Images/HistoryAd1.jpg')}/>
+                        <a sx={{color:red}} href='https://www.mcdonalds.com/ca/en-ca.html'>Lear more</a>
                     </Card>
                     <Card className={classes.filter}>
                         <CardMedia sx={{ height: 300,width:300}} image={require('./Images/Visa.jpg')}/>
                         <a sx={{color:red}} href='https://www.visa.ca/'>Lear more</a>
                     </Card>
                     <Card className={classes.filter}>
-                        <CardMedia sx={{ height: 300,width:300}} image={require('./Images/TD_Bank.jpg')}/>
-                        <a sx={{color:red}} href='https://www.td.com/ca/en/personal-banking'>Lear more</a>
+                        <CardMedia sx={{ height: 300,width:300}} image={require('./Images/HistoryAd3.jpg')}/>
+                        <a sx={{color:red}} href='https://www.walmart.ca/en'>Lear more</a>
                     </Card>
                 </div>
                 <div className={classes.rightside}>
                     <Card sx={{ marginTop: '2%',marginLeft:'28%'}}>
                         <CardMedia
                             sx={{ height: 140 }}
-                            image={require('./Images/Hyundai.jpg')}
+                            image={require('./Images/HistoryCar1.jpg')}
                             title="green iguana"
                         />
                         <CardContent>
@@ -76,7 +76,7 @@ const RideHistoryNew = () => {
                                         Spring Garden, Halifax to Sydney Downtown
                                     </Typography>
                                     <Typography gutterBottom variant="h6" component="div">
-                                        with Akash
+                                        with John
                                     </Typography>
                                     <Typography gutterBottom variant="h7" component="div">
                                         17th March, 2023
@@ -103,21 +103,21 @@ const RideHistoryNew = () => {
                             <div className={classes.splitScreen}>
                                 <div className={classes.typoLeftside}>
                                     <Typography gutterBottom variant="h5" component="div">
-                                        Spring Garden, Halifax to Sydney Downtown
+                                        Argyle Street to Mount Saint Vincent University
                                     </Typography>
                                     <Typography gutterBottom variant="h6" component="div">
-                                        with Akash
+                                        with Kerri
                                     </Typography>
                                     <Typography gutterBottom variant="h7" component="div">
-                                        17th March, 2023
+                                        03rd April, 2023
                                     </Typography>
                                     <Typography gutterBottom variant="h7" component="div">
                                         Passengers: 3
                                     </Typography>
                                 </div>
                                 <div className={classes.typoRightside}>
-                                    <Typography sx={{alignItems:'flex-end', flex: 1,flexDirection:'column-reverse',color:'green',fontSize:'100%'}} variant="body2" color="text.secondary">
-                                        Ride Complete
+                                    <Typography sx={{alignItems:'flex-end', flex: 1,flexDirection:'column-reverse',color:'red',fontSize:'100%'}} variant="body2" color="text.secondary">
+                                        Ride Canceled
                                     </Typography>
                                 </div>
                             </div>
@@ -126,23 +126,23 @@ const RideHistoryNew = () => {
                     <Card sx={{ marginTop: '2%',marginLeft:'28%'}}>
                         <CardMedia
                             sx={{ height: 140 }}
-                            image={require('./Images/Hyundai.jpg')}
+                            image={require('./Images/HistoryCar3.jpg')}
                             title="green iguana"
                         />
                         <CardContent>
                             <div className={classes.splitScreen}>
                                 <div className={classes.typoLeftside}>
                                     <Typography gutterBottom variant="h5" component="div">
-                                        Spring Garden, Halifax to Sydney Downtown
+                                        Barrington Hotel Halifax to Cape Breton University
                                     </Typography>
                                     <Typography gutterBottom variant="h6" component="div">
-                                        with Akash
+                                        with Liam
                                     </Typography>
                                     <Typography gutterBottom variant="h7" component="div">
-                                        17th March, 2023
+                                        27th March, 2023
                                     </Typography>
                                     <Typography gutterBottom variant="h7" component="div">
-                                        Passengers: 3
+                                        Passengers: 5
                                     </Typography>
                                 </div>
                                 <div className={classes.typoRightside}>
