@@ -15,7 +15,7 @@ const PaymentSuccessPage = () => {
       <Typography variant="body1" className="message">
         Thank you for your payment. Your transaction has been completed successfully.
       </Typography>
-      <Button variant="contained" color="primary" component={Link} to="/searchPage" className="btn">
+      <Button variant="contained" color="primary" component={Link} to="/" className="btn">
         Back to Home
       </Button>
     </div>

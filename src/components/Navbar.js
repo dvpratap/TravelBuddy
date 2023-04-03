@@ -20,7 +20,7 @@ function Navbar() {
     const navigate=useNavigate();
 
    const RouteToLogin = () =>{
-        navigate('/');
+        navigate('/login');
     }
 
      const RouteToSignUp = () =>{
@@ -28,7 +28,7 @@ function Navbar() {
     }
 
     const RouteToSearchPage = () =>{
-        navigate('/searchPage');
+        navigate('/');
     }
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);

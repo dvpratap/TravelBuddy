@@ -52,7 +52,7 @@ const Loginpage = () => {
     const classes = useStyles();
     const navigate = useNavigate();
      const RouteTo = () =>{
-        navigate('/searchPage');
+        navigate('/');
     }
     const signupClick = () =>{
         navigate('/signup');
