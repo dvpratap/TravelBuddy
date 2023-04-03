@@ -27,6 +27,10 @@ function Navbar() {
         navigate('/signup');
     }
 
+    const RouteToSearchPage = () =>{
+        navigate('/searchPage');
+    }
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   // eslint-disable-next-line
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -55,7 +59,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/searchPage"
+            onClick={RouteToSearchPage}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
