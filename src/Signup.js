@@ -52,7 +52,7 @@ const useStyles = makeStyles({
 const SignUp = () => {
     const navigate=useNavigate();
    const RouteTo = () =>{
-        navigate('/login');
+        navigate('/');
     }
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');

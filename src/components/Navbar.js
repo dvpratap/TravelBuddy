@@ -20,7 +20,7 @@ function Navbar() {
     const navigate=useNavigate();
 
    const RouteToLogin = () =>{
-        navigate('/login');
+        navigate('/');
     }
 
      const RouteToSignUp = () =>{
@@ -55,7 +55,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/searchPage"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
