@@ -12,15 +12,22 @@ import Postride from "./Postride";
 import ChatPage from "./ChatPage";
 import PaymentPage from "./PaymentPage";
 import PaymentSuccessPage from "./PaymentSuccessPage";
+import { useState } from 'react';
+import UserContext from './UserContext';
+
 
 const App = () => {
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user,setUser] = useState('');
   return (  
     <div>
+      <UserContext.Provider value={{user,setUser}}>
       <Router>
-        <Navbar/>
+      <Navbar isLoggedIn={isLoggedIn}/>
       <Routes>
       <Route exact path="/" element={<SearchPage/>} />
-      <Route path="/login" element={<Loginpage/>} />
+      <Route path="/login" element={<Loginpage setIsLoggedIn={setIsLoggedIn}/>} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/book_main" element={<BookMain/>} />
       <Route path="/Book_Desc" element={<BookDesc/>} />
@@ -32,6 +39,7 @@ const App = () => {
       <Route path="/payment/success" element={<PaymentSuccessPage/>} />
       </Routes>
   </Router>
+  </UserContext.Provider>
     </div> 
   );
 }

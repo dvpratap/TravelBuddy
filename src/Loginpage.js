@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext,useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
+import UserContext from './UserContext';
 
 const useStyles = makeStyles({
   root: {
@@ -26,6 +27,12 @@ const useStyles = makeStyles({
     marginBottom: 16,
     alignItems: 'center',
   },
+  error: {
+    fontSize: 14,
+    justifyContent: 'center',
+    display: 'flex',
+    color: 'red',
+  },
   cardColor: {
     minWidth: 275,
     height: '100vh',
@@ -35,27 +42,63 @@ const useStyles = makeStyles({
   },
   conent: {
     alignItems: 'center',
-    marginLeft: '75px',
+    justifyContent: 'center',
   },
   image: {
     backgroundColor: '(255,255,255,0.5)',
   },
   login:{
-    width: '60%',
-    height: '400px',
+    height: '450px',
+    minWidth: 275,
     alignItems: 'center',
-    marginLeft: '50px',
+    justifyContent: 'center',
   }
 
 });
-const Loginpage = () => {
+const Loginpage = ({setIsLoggedIn}) => {
+  let list = [
+    { userName: 'Dev', password: 'Dev@1234' },
+    { userName: 'Akash', password: 'Akash@1234' }
+  ];
+  const { setUser } = useContext(UserContext);
+  const [userName,setUserName] = useState("");
+  const [password,setPassword] = useState("");
+  const [errors, setErrors] = useState({});
     const classes = useStyles();
     const navigate = useNavigate();
-     const RouteTo = () =>{
-        navigate('/');
+    const inputUserName = (e) =>{
+      setUserName(e.target.value);
+    }
+    const inputPassword = (e) => {
+      setPassword(e.target.value);
+    }
+    const validation = () => {
+      let errors = {}
+      if(userName===""){
+          errors.userName = "userName is required!!"
+      }
+      if(password===""){
+          errors.password="Password is required !";
+          }
+          return errors
     }
     const signupClick = () =>{
         navigate('/signup');
+    }
+    const loginClick = (event) =>{
+      event.preventDefault(); 
+      setErrors(validation(userName,password));
+    if(Object.keys(errors).length === 0 && (userName && password)){
+      const user = list.find(user=> (user.userName===userName) && (user.password === password))
+      if(user){
+      setIsLoggedIn(true);
+      setUser(userName);
+      navigate('/');
+      }
+      else{
+        window.alert("Invalid Credentials");
+      }
+    }
     }
     return (
       <Grid container spacing={0}>
@@ -80,37 +123,39 @@ const Loginpage = () => {
             </Card>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Card className={classes.root}>
+          <Card className={classes.root} >
           <Card className={classes.login}>
           <form>
-          <Typography variant="h4" gutterBottom sx={{marginBottom: '20px', marginLeft: '130px', marginTop:'20px'}}>
+          <Typography variant="h4" gutterBottom sx={{marginBottom: '20px', marginLeft: '100px', marginTop:'20px'}}>
           Login
         </Typography>
           <div className='margin-top'>
-          <TextField sx={{marginBottom: '20px', marginLeft: '70px'}}
+          <TextField sx={{marginBottom: '10px', marginLeft: '20px'}}
             id="userName"
             label="UserName"
             defaultValue=""
-            //value={email}
-            //onChange={inputEmail}
+            value={userName}
+            onChange={inputUserName}
           />
+          {errors.userName && <p className= {classes.error}>{errors.userName}</p>}
           </div>
           <div className='margin-top'>
-          <TextField sx={{marginLeft: '70px'}}
+          <TextField sx={{marginLeft:'20px'}}
             id="password"
             type='password'
             label="Password"
-            //value={password}
-            //onChange={inputPassword}
+            value={password}
+            onChange={inputPassword}
             defaultValue=""
           />
+          {errors.password && <p className={classes.error}>{errors.password}</p>}
           </div>
-          <Link href="/forgotpassword" sx={{marginLeft:'170px'}}>forgot password ?</Link>
+          <Link href="/forgotpassword" sx={{marginLeft:'100px'}}>forgot password ?</Link>
           <div className='margin-top'>
-          <Button sx={{marginLeft: '130px', marginTop:'30px'}} variant="contained" onClick={RouteTo}>LogIn</Button>
+          <Button sx={{marginLeft: '100px', marginTop:'30px'}} variant="contained" type='submit' onClick={loginClick}>LogIn</Button>
           </div>
           </form>
-          <Button sx={{marginLeft: '90px', marginTop:'20px'}} variant="outlined" onClick={signupClick}>SignUp/Register</Button>
+          <Button sx={{marginLeft: '60px', marginTop:'20px'}} variant="outlined" onClick={signupClick}>SignUp/Register</Button>
           </Card>
           </Card>
         </Grid>

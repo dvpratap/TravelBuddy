@@ -24,7 +24,6 @@ const useStyles = makeStyles({
     title: {
       fontSize: 24,
       fontWeight: 'bold',
-      marginBottom: 16,
       alignItems: 'center',
     },
     cardColor: {
@@ -33,6 +32,12 @@ const useStyles = makeStyles({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    error: {
+      fontSize: 11,
+      justifyContent: 'center',
+      display: 'flex',
+      color: 'red',
     },
     conent: {
       alignItems: 'center',
@@ -43,7 +48,7 @@ const useStyles = makeStyles({
     },
     signup:{
       minWidth: 350,
-      height: '520px',
+      minHeight: 530,
       alignItems: 'center',
       justifyContent: 'center',
     }
@@ -51,13 +56,11 @@ const useStyles = makeStyles({
   });
 const SignUp = () => {
     const navigate=useNavigate();
-   const RouteTo = () =>{
-        navigate('/');
-    }
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors,setErrors] = useState({});
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -74,9 +77,39 @@ const SignUp = () => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
+  const Validation = () => {
+    let errors={};
+    if(!firstName){
+        errors.firstName="First Name is required !";
+    }else if(!/^[a-z ]*[A-Z ]*$/i.test(firstName)){
+        errors.firstName="Only Letters Allowed !";
+    }
+    if(!lastName){
+        errors.lastName="Last Name is required !";
+    }else if(!/^[a-z ]*[A-Z ]*$/i.test(lastName)){
+        errors.lastName="Only Letters Allowed !";
+    }
+    if(!email){
+        errors.email="Email is required !";
+    }else if(!/\S+@\S+\.\S+/.test(email)){
+        errors.email="Invalid Email !!";
+    }
+    if(!password){
+        errors.password="Password is required !";
+    }else if(!/^[ A-Za-z0-9_@./#&+-]{8,}$/i.test(password)){
+        errors.password="Password must be > 8 characters..";
+    }
+    return errors;
+}
+
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    setErrors(Validation());
+    if(Object.keys(errors).length === 0 && (firstName && lastName && email && password)){
+      navigate('/login');
+  }
+
     // Send form data to the server for processing
   };
 const classes = useStyles();
@@ -95,7 +128,7 @@ const classes = useStyles();
                       className={classes.image}
                     />
                 <CardContent>
-                <Typography sx={{marginLeft: '60px'}} gutterBottom variant="h4" component="div">
+                <Typography sx={{marginLeft: '60px'}} gutterBottom variant="h5" component="div">
                 Travel-Buddy
               </Typography>
                 </CardContent>
@@ -107,7 +140,7 @@ const classes = useStyles();
               <Card className={classes.root}>
               <Card className={classes.signup}>
         <div>
-        <h1 style={{marginLeft: '120px'}}>Sign Up</h1>
+        <h2 style={{marginLeft: '120px'}}>Sign Up</h2>
         <form onSubmit={handleFormSubmit}>
         <div >
           <TextField sx={{marginLeft: '70px'}}
@@ -118,6 +151,7 @@ const classes = useStyles();
             required
             margin="normal"
           />
+          {errors.firstName && <p className={classes.error}>{errors.firstName}</p>}
           </div>
           <div>
           <TextField sx={{marginLeft: '70px'}}
@@ -128,6 +162,7 @@ const classes = useStyles();
             required
             margin="normal"
           />
+          {errors.lastName && <p className={classes.error}>{errors.lastName}</p>}
           </div>
           <div>
           <TextField sx={{marginLeft: '70px'}}
@@ -137,6 +172,7 @@ const classes = useStyles();
             onChange={handleEmailChange}
             required
           />
+          {errors.email && <p className={classes.error}>{errors.email}</p>}
           </div>
           <div>
           <TextField sx={{marginLeft: '70px'}}
@@ -147,10 +183,11 @@ const classes = useStyles();
             required
             margin="normal"
           />
+          {errors.password && <p className={classes.error}>{errors.password}</p>}
           </div>
           <div>
-          <Button sx={{marginLeft: '130px', marginTop:'15px', marginBottom: '7px'}} 
-          onClick={RouteTo}
+          <Button sx={{marginLeft: '130px', marginTop:'10px', marginBottom: '2px'}} 
+          onClick={handleFormSubmit}
           variant="contained" color="primary">
             Sign Up
           </Button>

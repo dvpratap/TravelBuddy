@@ -10,44 +10,22 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { ModeOfTravel } from '@mui/icons-material';
-import {useNavigate} from 'react-router-dom';
+import UserContext from '../UserContext';
+import {useContext} from 'react';
+import { Link } from 'react-router-dom';
 
-const pages = ['Post-Ride', 'Book-Ride', 'Request-Ride'];
-//const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function Navbar() {
-
-    const navigate=useNavigate();
-
-   const RouteToLogin = () =>{
-        navigate('/login');
-    }
-
-     const RouteToSignUp = () =>{
-        navigate('/signup');
-    }
-
-    const RouteToSearchPage = () =>{
-        navigate('/');
-    }
-
+function Navbar({isLoggedIn}) {
+  const { user,setUser } = useContext(UserContext);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   // eslint-disable-next-line
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  // eslint-disable-next-line
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (event) => {
     setAnchorElNav(null);
-  };
-// eslint-disable-next-line
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
@@ -59,7 +37,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            onClick={RouteToSearchPage}
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -102,11 +80,21 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Link style={{textDecoration:'none'}} to="/book_main">
+                  <Button textAlign="center" color="inherit" variant='contained' >Book-Ride</Button>
+                  </Link>
                 </MenuItem>
-              ))}
+                <MenuItem onClick={handleCloseNavMenu}>
+                <Link style={{textDecoration:'none'}} to='/postride'>
+                  <Button textAlign="center" color="inherit" variant='contained' >Post-Ride</Button>
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Link style={{textDecoration:'none'}} to="/rideHistory">
+                  <Button textAlign="center" color="inherit" variant='contained' >Ride-History</Button>
+                  </Link>
+                </MenuItem>
             </Menu>
           </Box>
           <ModeOfTravel sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -114,7 +102,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -129,18 +117,46 @@ function Navbar() {
             Travel-Buddy
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+          <Link style={{textDecoration:'none'}} to="/book_main">
+              <Button 
+              to='/book_main'
+              variant='contained'
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                color='warning'
+                sx={{ my: 2, color: 'white', display: 'block',backgroundColor: '#E9967A' }}
               >
-                {page}
+                Book-Ride
               </Button>
-            ))}
+              </Link>
+              <Link style={{textDecoration:'none'}} to='/postride'>
+              <Button 
+              
+              variant='contained'
+              color='warning'
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' ,backgroundColor: '#E9967A'}}
+              >
+                Post-Ride
+              </Button>
+              </Link>
+              <Link style={{textDecoration:'none'}} to='/rideHistory'>
+              <Button 
+              variant='contained'
+              color='warning'
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block',backgroundColor: '#E9967A' }}  
+              >
+                Ride-History
+              </Button>
+              </Link>
           </Box>
-          <Button color="inherit" variant='outlined' sx={{marginRight:'5px'}} onClick={RouteToLogin} >Login</Button>
-          <Button color="inherit" variant='outlined' onClick={RouteToSignUp} >SignUp</Button>
+          {user ? (<><Typography
+            variant="h5">{user}</Typography>
+            <Link  style={{textDecoration:'none'}} to='/login'>
+            <Button color="inherit"  variant='outlined' sx={{marginLeft:'5px', my: 2, color: 'white', display: 'block'}} onClick={()=>setUser('')}>LogOut</Button></Link></>):(<>
+          <Button color="inherit" variant='outlined' sx={{marginRight:'5px'}} href='/login'>Login</Button>
+          <Button color="inherit" variant='outlined' href='/signup'>SignUp</Button> </>)
+}
         </Toolbar>
       </Container>
     </AppBar>
